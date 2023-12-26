@@ -1,3 +1,13 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use CGI;
+ 
+my $cgi = CGI->new;
+my $q = $cgi->param('q');
+
+print $cgi->header('text/html');
+print <<BLOCK;
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -9,7 +19,7 @@
   <body>
     <nav>
       <div>
-        <button>Búsqueda Simple</button>
+        <button onclick="location.href='simple-se.html'">Búsqueda Simple</button>
       </div>
       <div>
         <button onclick="location.href='advanced-se.html'">Búsqueda Avanzada</button>
@@ -18,18 +28,6 @@
         <button onclick="location.href='image-se.html'">Búsqueda Por Imágenes</button>
       </div>
     </nav>
-
-    <div>
-      <div>
-        <img src="img/search.png">
-      </div>
-      <div>
-        <form action="cgi-bin/simple-se.pl" method="post">
-          <input type="text" name="q">
-          <input type="submit" value="Búsqueda por Google">
-        </form>
-      </div>
-    </div>
-
   </body>
 </html>
+BLOCK

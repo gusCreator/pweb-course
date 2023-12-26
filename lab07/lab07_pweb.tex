@@ -1,0 +1,264 @@
+%\packagelist
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+%\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+%\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemEmail}{lsequeiros@unsa.edu.pe}
+\newcommand{\itemStudent}{Luis Gustavo Sequeiros Condori}
+\newcommand{\itemCourse}{Programación Web I}
+\newcommand{\itemSemester}{II}
+\newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
+\newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
+\newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
+\newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\itemAcademic}{2023 - B}
+\newcommand{\itemInput}{Del 16 Diciembre 2023}
+\newcommand{\itemOutput}{Al 23 Diciembre 2023}
+\newcommand{\itemPracticeNumber}{06}
+\newcommand{\itemTheme}{Perl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{logo_episunsa.png}}}
+\fancyhead[C]{\fontsize{7}{7}\selectfont	\itemUniversity \\ \itemFaculty \\ \itemDepartment \\ \itemSchool \\ \textbf{\itemCourse}}
+\fancyhead[R]{\raisebox{-0.2\height}{\includegraphics[width=1.2cm]{logo_abet.png}}}
+\fancyfoot[R]{Página \thepage}
+
+% para el codigo fuente
+\usepackage{listings}
+\usepackage{color, colortbl}
+\definecolor{numberOrange}{RGB}{235, 126, 9}
+\definecolor{mygreen}{RGB}{40, 194, 6}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{myblue}{RGB}{57, 118, 189}
+\definecolor{gray}{rgb}{0.156,0.146,0.135}
+\definecolor{mygray}{RGB}{135, 135, 135}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackgroundCode}{RGB}{10, 10, 20}
+\definecolor{codebackgroundBash}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{RGB}{10, 25, 115}
+\definecolor{lines}{RGB}{0, 120, 250}
+
+\arrayrulecolor{lines}
+\lstdefinestyle{custom}{
+  %Las líneas que encierran al código: top, below, left, right. COn mayúsculas son dos líneas
+  frame=tlrb,
+  %Los espacios en los strings s muestran con normalidad, no con carácter especial
+  showstringspaces=false,
+  %no tiene cuidado del alineamiento de columnas, contrario a fixed, con ese valor es más riguroso
+  columns=flexible,
+  %Permite saltos de línea cuando el texto es muy largo
+  breaklines=true,
+  %Luego de un salto de línea automático, se coloca una flecita roja
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  %Los saltos de línea solo deben ocurrir en espacios en blanco
+  breakatwhitespace=true,
+  %espacios de tabulador
+  tabsize=2,
+  %No mostrar tabulador como caracter, como un espacio y ya
+  showtabs=false,
+  %No mostrar los espacios como caracteres
+  showspaces=false,
+  %No mostrar líneas al final de los listados
+  showlines=false,
+  %La codificación del archivo
+  inputencoding=utf8,
+  %Permite manejar los caracteres especiales junto con inputencoding  el paquete inputenc
+  extendedchars=true,
+  %
+  literate={á}{\'a}1 {é}{\'e}1 {í}{\'i}1 {ó}{\'o}1 {ú}{\'u}1 {¿}{\textquestiondown}1 {ñ}{\~n}1 {Ñ}{\~N}1 
+  {Á}{\'A}1 {É}{\'E}1 {Í}{\'I}1 {Ó}{\'O}1 {Ú}{\'U}1 {¡}{\textexclamdown}1
+}
+
+\lstdefinestyle{perl}{
+  style=custom,
+	language=Perl,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
+\lstdefinestyle{mybash}{
+  style=custom,
+	language=bash,
+	keepspaces=true,
+	basicstyle={\small\ttfamily},
+	keywordstyle=\color{myblue},
+	morekeywords={java, javac, git},
+	commentstyle=\color{mygray},
+	stringstyle=\color{mygreen},
+	backgroundcolor= \color{codebackgroundBash}
+}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ Informe de Laboratorio \itemPracticeNumber}
+	\end{center}
+	\centerline{\textbf{\Large Tema: \itemTheme}}
+	\vspace*{0.5cm}	
+
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Estudiante} & \color{white}\textbf{Escuela}  & \color{white}\textbf{Asignatura}   \\
+			\hline 
+      {\itemStudent \par \itemEmail} & \itemSchool & {\itemCourse \par Semestre: \itemSemester}     \\
+			\hline 			
+		\end{tabular}
+	\end{table}		
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Semestre académico} & \color{white}\textbf{Fecha de inicio}  & \color{white}\textbf{Fecha de entrega}   \\
+			\hline 
+			\itemAcademic & \itemInput &  \itemOutput  \\
+			\hline 
+		\end{tabular}
+	\end{table}
+
+	%\section{Objetivos}
+	%\begin{itemize}		
+   % \item 
+	%\end{itemize}
+		
+	\section{Temas a Tratar:}
+	\begin{itemize}
+		\item Ejercicios en Perl
+	\end{itemize}
+	
+	\section{Actividades}
+
+  \subsection{Ejercicio 1}
+
+  \begin{quote}
+    Escriba un programa en Perl que le pida su nombre y lo salude usando un mensaje con el nombre ingresado.
+  \end{quote}
+
+  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej1.pl}}]{./ej1.pl}
+    
+
+  \begin{quote}
+    Utilizo la entrada estándar, sin embargo, lee la entrada con un salto de línea. Utilizo la subrutina \textit{chomp} para eliminar ese salto de línea. Luego, simplemente imprimo el saludo con el nombre ingresado.
+  \end{quote}
+
+  \subsection{Ejercicio 2}
+
+  \begin{quote}
+    Programe la función mayor que reciba un arreglo de números y devuelva el mayor de todos. int mayor(int[] a). Sólo puede usar ciclos y condicionales, no  podrá usar otras funciones del lenguaje Perl.
+  \end{quote}
+
+  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej2.pl}}]{./ej2.pl}
+
+  \begin{quote}
+    Se crea la subrutina \textit{Mayor}, el cual itera en el arreglo que se ingresa como parámetro, se toma como elemento mayor al primer elemento en el arreglo, si hay otro elemento mayor, pues se cambia. Retorna el número mayor en el arreglo.
+  \end{quote}
+
+  \subsection{Ejercicio 3}
+
+  \begin{quote}
+    Escriba una función que reciba un string y retorne el mismo string invertido. Por ejemplo si la función recibe "roma", deberá devolver "amor". Sólo puede usar ciclos y condicionales, no podrá usar otras funciones del lenguaje Perl.
+  \end{quote}
+
+  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej3.pl}}]{./ej3.pl}
+
+  \begin{quote}
+    La subrutina \textit{Invert} itera en cada caracter del string ingresado como parámetro, emepzando por el final. Luego, ese caracter se concatena a un nuevo string. Al final obtengo el string invertido.
+  \end{quote}
+
+  \subsection{Ejercicio 4}
+
+  \begin{quote}
+    Estamos al final del semestre y para calcular su promedio el profesor del curso desea eliminar la peor nota y duplicar la mayor nota. De este modo, si sus notas fueran 12, 15, 17 y 14; el profesor eliminaría el 12 y duplicaría el 17, entonces sus notas serían 17, 15, 17 y 14 y sobre ellas calcularía el promedio. Usted deberá programar una función que reciba las notas y devuelva el promedio, según se explicó y para una cantidad de notas no determinada. Para programar su función no podrá usar ningún tipo de condicionales, sólo las funciones max y min de perl.
+  \end{quote}
+
+  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej4.pl}}]{./ej4.pl}
+
+  \begin{quote}
+    Se utiliza el módulo \textit{List::Util} para poder utilizar las subrutinas \textit{max y min}. En la subrutina \textit{Average}, se extrae el elemento mayor y menor en el arreglo de parámetros. Se suman todos los elementos del arreglo y luego, para hallar el promedio de acuerdo a las condiciones dadas, se resta el menor y se suma el mayor, luego se divide entre el número de elementos del arreglo.
+  \end{quote}
+
+  \subsection{Ejercicio 5}
+
+  \begin{quote}
+    Se define una celebridad como una persona que no conoce a nadie,  pero que todos la conocen. Se dispone de una matriz M, donde la posición M[i,j] es True si la persona i, conoce a la persona j; si la persona i, no conoce a la persona j,  entonces M[i,j] será False. Describa un algoritmo que dada una matriz M, logre determinar si esta posee alguna celebridad. Su algoritmo deberá resolver el problema en tiempo lineal, su solución no podrá implicar un tiempo cuadrático ( for o while anidados) o superior.
+
+  \end{quote}
+
+  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej5.pl}}]{./ej5.pl}
+
+  \begin{quote}
+    Nuevamente se utiliza el módulo \textit{List::Util}, para tener acceso a la subrutina \textit{max}. Se crea la subrutina \textit{Celebrity}. En esta, se ingresa como parámetro una referencia a un arreglo bidimensional. Primero se resta 1 al elemento de la diagonal principal, para obtener 0 en dicha posición, luego, si en la fila, el máximo elemento es 0, quiere decir que toda la fila son ceros, ello significa que estamos ante una posible celebridad, que es la única que puede haber en el arreglo bidimensional. Si no se encuentra una fila que contenga solamente ceros, la subrutina retorna 0 (false). Después, se itera en la columna de la celebridad, la cual, al sumarla, debe resultar la cantidad de filas menos 1, con ello nos aseguramos que estamos hablando de una celebridad, por lo tanto retornamos 1 (true), si esto no se cumple, la subrutina termina y retorna 0 (false).
+  \end{quote}
+
+
+\clearpage
+	
+%\clearpage
+%\bibliographystyle{apalike}
+%\bibliographystyle{IEEEtranN}
+%\bibliography{bibliography}
+			
+\end{document}
