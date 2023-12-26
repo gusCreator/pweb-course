@@ -1,1 +1,17 @@
-/*#162836*/
+*{
+  margin:0;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  width: 100%;
+  border-color: white;
+  border-radius: 0;
+  background-color: #4285f4;
+  color: white;
+}
+.button-container {
+  width: 100%;
+}
