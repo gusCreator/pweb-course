@@ -1,3 +1,6 @@
+:root {
+  --blue: #4285f4;
+}
 *{
   margin:0;
 }
@@ -7,10 +10,11 @@ nav {
 }
 button {
   width: 100%;
-  border-color: white;
-  border-radius: 0;
-  background-color: #4285f4;
+  height: 100%;
+  border: none;
+  background-color: var(--blue);
   color: white;
+  padding: 0;
 }
 .button-container {
   width: 100%;
@@ -27,12 +31,35 @@ button {
 #logo img {
   width: 100%;
 }
-#form-container {
+.simple-form{
   display: flex;
   justify-content: center;
   width: 100%;
 }
-form {
+.simple-form form {
   display: flex;
   flex-direction: column;
+  width: 60%;
+  align-items: center;
+  row-gap: 4vh;
+}
+.search-button {
+  width: fit-content;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  padding: 1%;
+  border-radius: 50em;
+}
+.search-input {
+  width: 50vw;
+  height: 35px;
+  border: solid lightgray 3px;
+  border-radius: 50em;
+  background-color: lightgray;
+  padding: 0 15px;
+}
+.search-input::placeholder {
+  color:gray;
+  font-size: 120%;
 }
