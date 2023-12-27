@@ -42,11 +42,18 @@ button:hover {
   justify-content: center;
   width: 100%;
 }
-.simple-form form {
+.simple-form .simple {
   display: flex;
   flex-direction: column;
   width: 60%;
   align-items: center;
+  row-gap: 4vh;
+}
+.simple-form .advance {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items:center;
   row-gap: 4vh;
 }
 .search-button {
@@ -69,7 +76,17 @@ button:hover {
   background-color: lightgray;
   padding: 0 15px;
   font-size: 120%;
+  display: flex;
+  align-items: center;
 }
 .search-input::placeholder {
   color:gray;
+  font-size: 1.3vw;
+}
+.param {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 100%;
 }
