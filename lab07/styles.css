@@ -15,3 +15,10 @@ button {
 .button-container {
   width: 100%;
 }
+#logo-container {
+  display: flex;
+  width: 40vw;
+  height: 150px;
+  justify-content: center;
+  padding: 20px 0;
+}
