@@ -27,12 +27,19 @@ sub solveExp {
   }else{
     my $solv;
     if($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\*[\-\+]?[0-9]+(\.[0-9]+)?)/){
-      $solv = solveMul($2);
+      #$solv = solveMul($2);
       $ec = $1.$solv.$3;
+      print $ec."\n";
     }
     if($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\/[\-\+]?[0-9]+(\.[0-9]+)?)/){
-      $solv = solveDiv($2);
+      #$solv = solveDiv($2);
       $ec = $1.$solv.$3;
+      print $ec."\n";
+    }
+    while($ec =~ m/([\-\+]?[0-9]+(\.[0-9]+)?(\+|-)[\-\+]?[0-9]+(\.[0-9]+)?)/){
+      #$solv = solveSum($2);
+      $ec = $1.$solv.$3;
+      print $ec."\n";
     }
   }
 }
