@@ -20,15 +20,17 @@ sub solveMul {
 sub solveDiv {
 
 }
-sub recognize {
+sub solveExp {
+  $ec =~ s/ //g;
+  $ec =~ s/-/+-/g;
+  my @members = split('\+', $ec);  
+}
+sub secureExp {
   my $ec = $_[0];
   if($ec =~ /[a-z]|[A-Z]/){
     return "No es una expresión válida\n";
-  }else{
-    $ec =~ s/ //g;
-    $ec =~ s/-/+-/g;
-    my @members = split('\+', $ec);
   }
+  return solveExp($ec);
 }
 
 my $y = <STDIN>;
