@@ -21,12 +21,18 @@ sub solveDiv {
 
 }
 sub solveExp {
-  $ec =~ s/ //g;
-  $ec =~ s/-/+-/g;
-  my @members = split('\+', $ec);  
+  my $ec = $_[0];
+  if($ec =~ m/.*\((.+)\).*/){
+    solveExp($1);
+  }else{
+    if($ec =~ /^(-)?([0-9]*(\.[0-9])*){1}\*-?([0-9]*(\.[0-9])*){1}/)
+    $ec =~ s/-/\+-/g;
+    my @members = split('\+', $ec);
+  }
 }
 sub secureExp {
   my $ec = $_[0];
+  $ec =~ s/ //g;
   if($ec =~ /[a-z]|[A-Z]/){
     return "No es una expresión válida\n";
   }
