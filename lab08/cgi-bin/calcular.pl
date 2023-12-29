@@ -25,8 +25,12 @@ sub recognize {
   if($ec =~ /[a-z]|[A-Z]/){
     return "No es una expresión válida\n";
   }else{
-    my $ec =~ s/ //g;
-    my $ec =~ s/-/+-/g;
-    my  @members = split('+', $ec);
+    $ec =~ s/ //g;
+    $ec =~ s/-/+-/g;
+    my @members = split('\+', $ec);
   }
 }
+
+my $y = <STDIN>;
+chomp($y);
+print recognize($y);
