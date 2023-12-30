@@ -18,21 +18,29 @@
         <button onclick="location.href='image-se.html'">Búsqueda de Imágenes</button>
       </div>
     </nav>
-  </body>
     <div>
-      <div>
-        <img src="img/search.png">
+      <div id="logo-container">
+        <div id="logo">
+          <img src="img/search.png">
+        </div>
       </div>
-      <div>
-        <form action="cgi-bin/advanced-se.pl" method="post">
-          <label for="as_q">Todas estas palabras</label>
-          <input type="text" name="as_q">
-          <label for="as_epq">Esta palabra o frase exacta</label> 
-          <input type="text" name="as_epq">
-          <label for="as_eq">Ninguna de estas palabras</label>
-          <input type="text" name="as_eq">
-          <input type="submit" value="Búsqueda Avanzada">
+      <div class="simple-form">
+        <form action="cgi-bin/advanced-se.pl" method="post" class="advance">
+          <div class="param">
+            <label for="as_q">Todas estas palabras</label>
+            <input type="text" name="as_q" placeholder="Ingresa las palabras importantes: Editor" class="search-input">
+          </div>
+          <div class="param">
+            <label for="as_epq">Esta palabra o frase exacta</label> 
+            <input type="text" name="as_epq" placeholder='Ingresa palabras exactas y entre comillas: "Vim"' class="search-input">
+          </div>
+          <div class="param">
+            <label for="as_eq">Ninguna de estas palabras</label>
+            <input type="text" name="as_eq" placeholder='Ingresa un signo menos delante de las palabras para que no aparezcan: -"code"' class="search-input">
+          </div>
+          <input type="submit" value="Búsqueda Avanzada" class="search-button">
         </form>
       </div>
     </div>
+  </body>
 </html>

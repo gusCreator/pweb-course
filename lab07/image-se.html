@@ -15,18 +15,20 @@
         <button onclick="location.href='advanced-se.html'">Búsqueda Avanzada</button>
       </div>
       <div class="button-container">
-        <button>Búsqueda De Imágenes</button>
+        <button>Búsqueda de Imágenes</button>
       </div>
     </nav>
 
     <div>
-      <div>
-        <img src="img/search.png">
+      <div id="logo-container">
+        <div id="logo">
+          <img src="img/search.png">
+        </div>
       </div>
-      <div>
-        <form action="cgi-bin/image-se.pl" method="post">
-          <input type="text" name="q">
-          <input type="submit" value="Búsqueda de Imágenes">
+      <div class="simple-form">
+        <form action="cgi-bin/image-se.pl" method="post" class="simple">
+          <input type="text" name="q" placeholder="Buscar" class="search-input" required>
+          <input type="submit" value="Búsqueda de Imágenes" class="search-button">
         </form>
       </div>
     </div>
