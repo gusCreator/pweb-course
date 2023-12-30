@@ -24,7 +24,10 @@ sub solveDiv {
 }
 sub solveExp {
   my $ec = $_[0];
-  if($ec =~ m/(.*?)\((.+)\)(.*)/){
+  if($ec =~ m/^\((.+)\)$/){
+    $ec = $1;
+  }
+  if($ec =~ m/(.*?)\((.+?)\)(.*)/){
     $ec = $1.solveExp($2).$3;
     print $ec."\n";
     return solveExp($ec);
