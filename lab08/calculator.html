@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="title">
+        <span>Calculadora</span>
+      </div>
+      <div class="subtitle">
+        <span>Ingrese su operación:</span>
+      </div>
+      <div class="simple-form">
+        <form action="cgi-bin/calcular.pl" method="POST" class="simple">
+          <input type="text" name="exp" class="search-input" required>
+          <input type="submit" value="Calcular" class="search-button">
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
