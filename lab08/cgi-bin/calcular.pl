@@ -24,32 +24,44 @@ sub solveDiv {
 }
 sub solveExp {
   my $ec = $_[0];
-  if($ec =~ m/^\((.+)\)$/){
-    $ec = $1;
-  }
-  if($ec =~ m/(.*?)\((.+?)\)(.*)/){
+  #if($ec =~ m/^\((.+)\)$/){
+  # $ec = $1;
+  #}
+  #print $ec."\n";
+  if($ec =~ m/(.*?)\((.+?)\)(.*?)(\(.+\))(.*)/){
+    print "dobPar: $1,$2,$3,$4,$5\n";
+    $ec = $1.solveExp($2).$3.$4.$5;
+    print "solvedobPar: ".$ec."\n";
+    return solveExp($ec);
+  }elsif($ec =~ m/^\((.+)\)$/){
+    return solveExp($1);
+  }elsif($ec =~ m/(.*?)\((.+)\)(.*)/){
+    print "nesPar: $1,$2,$3\n";
     $ec = $1.solveExp($2).$3;
-    print $ec."\n";
+    print "solvenesPar: ".$ec."\n";
     return solveExp($ec);
   }else{
     my $solv;
+    print "Init without par\n";
     while($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\*[\-\+]?[0-9]+(\.[0-9]+)?)/){
       $solv = solveMul($2);
       $ec = $1.$solv.$';
-      print $ec."\n";
+      print "Mult: ".$ec."\n";
     }
     while($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\/[\-\+]?[0-9]+(\.[0-9]+)?)/){
       $solv = solveDiv($2);
       $ec = $1.$solv.$';
-      print $ec."\n";
+      print "Div: ".$ec."\n";
     }
     $ec =~ s/-/+-/g;
     my @mem = split('\+', $ec);
     my $sum = 0;
     for my $num(@mem){
       $sum = $sum + 0 +  $num;
+      print "$sum\n";
     }
     $ec = $sum;
+    print "Final sum: $ec\n";
     return $ec;
   }
 }
