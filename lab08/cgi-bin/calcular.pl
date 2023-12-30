@@ -3,22 +3,24 @@ use strict;
 use warnings;
 use CGI;
  
-sub solvePar {
-  
-}
-
 sub solveSum {
 
 }
-sub solveRes {
-
-}
-
 sub solveMul {
-
+  my $ec = $_[0];
+  my $mult;
+  if($ec =~ m/(.*?)\*(.*)/){
+    $mult = $1 * $2;
+  }
+  return $mult;
 }
 sub solveDiv {
-
+  my $ec = $_[0];
+  my $div;
+  if($ec =~ m/(.*?)\/(.*)/){
+    $div = $1 * $2;
+  }
+  return $div;
 }
 sub solveExp {
   my $ec = $_[0];
@@ -54,4 +56,4 @@ sub secureExp {
 
 my $y = <STDIN>;
 chomp($y);
-print recognize($y);
+print secureExp($y);
