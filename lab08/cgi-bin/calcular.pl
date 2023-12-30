@@ -3,9 +3,6 @@ use strict;
 use warnings;
 use CGI;
  
-sub solveSum {
-
-}
 sub solveMul {
   my $ec = $_[0];
   my $mult;
@@ -38,11 +35,14 @@ sub solveExp {
       $ec = $1.$solv.$3;
       print $ec."\n";
     }
-    while($ec =~ m/([\-\+]?[0-9]+(\.[0-9]+)?(\+|-)[\-\+]?[0-9]+(\.[0-9]+)?)/){
-      #$solv = solveSum($2);
-      $ec = $1.$solv.$3;
-      print $ec."\n";
+    $ec = s/-/+-/g;
+    my @mem = split('\+', $ec);
+    my $sum = 0;
+    for my $num(@mem){
+      $sum = $sum + $num;
     }
+    $ec = $sum;
+    return $ec;
   }
 }
 sub secureExp {
