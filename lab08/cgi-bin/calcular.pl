@@ -9,37 +9,42 @@ sub solveMul {
   if($ec =~ m/(.*?)\*(.*)/){
     $mult = $1 * $2;
   }
+  if($mult > 0){
+    $mult = "+".$mult;
+  }
   return $mult;
 }
 sub solveDiv {
   my $ec = $_[0];
   my $div;
   if($ec =~ m/(.*?)\/(.*)/){
-    $div = $1 * $2;
+    $div = $1 / $2;
   }
   return $div;
 }
 sub solveExp {
   my $ec = $_[0];
-  if($ec =~ m/.*\((.+)\).*/){
-    solveExp($1);
+  if($ec =~ m/(.*?)\((.+)\)(.*)/){
+    $ec = $1.solveExp($2).$3;
+    print $ec."\n";
+    return solveExp($ec);
   }else{
     my $solv;
-    if($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\*[\-\+]?[0-9]+(\.[0-9]+)?)/){
-      #$solv = solveMul($2);
-      $ec = $1.$solv.$3;
+    while($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\*[\-\+]?[0-9]+(\.[0-9]+)?)/){
+      $solv = solveMul($2);
+      $ec = $1.$solv.$';
       print $ec."\n";
     }
-    if($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\/[\-\+]?[0-9]+(\.[0-9]+)?)/){
-      #$solv = solveDiv($2);
-      $ec = $1.$solv.$3;
+    while($ec =~ m/(.*?)([\-\+]?[0-9]+(\.[0-9]+)?\/[\-\+]?[0-9]+(\.[0-9]+)?)/){
+      $solv = solveDiv($2);
+      $ec = $1.$solv.$';
       print $ec."\n";
     }
-    $ec = s/-/+-/g;
+    $ec =~ s/-/+-/g;
     my @mem = split('\+', $ec);
     my $sum = 0;
     for my $num(@mem){
-      $sum = $sum + $num;
+      $sum = $sum + 0 +  $num;
     }
     $ec = $sum;
     return $ec;
