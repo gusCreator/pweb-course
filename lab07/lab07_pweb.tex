@@ -18,6 +18,8 @@
 \usepackage{svg}
 \usepackage{xcolor}
 \usepackage{listings}
+\lstloadlanguages{HTML}
+\lstloadlanguages{CSS}
 \lstset{basicstyle=\ttfamily,
   showstringspaces=false,
   commentstyle=\color{red},
@@ -44,9 +46,9 @@
 \newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
 \newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
 \newcommand{\itemAcademic}{2023 - B}
-\newcommand{\itemInput}{Del 16 Diciembre 2023}
-\newcommand{\itemOutput}{Al 23 Diciembre 2023}
-\newcommand{\itemPracticeNumber}{06}
+\newcommand{\itemInput}{Del 23 Diciembre 2023}
+\newcommand{\itemOutput}{Al 27 Diciembre 2023}
+\newcommand{\itemPracticeNumber}{07}
 \newcommand{\itemTheme}{Perl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,6 +137,40 @@
   emphstyle={\color[RGB]{244,151,32}},
 	backgroundcolor= \color{codebackgroundCode}
 }
+\lstdefinestyle{html}{
+  style=custom,
+  language=HTML,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  %emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
+\lstdefinestyle{css}{
+  style=custom,
+  language=CSS,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  %emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
 \lstdefinestyle{mybash}{
   style=custom,
 	language=bash,
@@ -186,73 +222,56 @@
 		
 	\section{Temas a Tratar:}
 	\begin{itemize}
-		\item Ejercicios en Perl
+		\item CGI en perl
 	\end{itemize}
 	
 	\section{Actividades}
 
-  \subsection{Ejercicio 1}
+  \subsection{Archivo \textit{simple-se.html}}
+
+  \lstinputlisting[style=html, caption={Esta es la estructura de la página de búsqueda simple}]{simple-se.html}
 
   \begin{quote}
-    Escriba un programa en Perl que le pida su nombre y lo salude usando un mensaje con el nombre ingresado.
+    Se puede observar la estructura en el \textit{head} por defecto que debería tener todo documento HTML. Luego, se observa la estructura del la barra de navegación, con tres botones que se dirigen a las respectivas páginas creadas. Posteriormente, se observa la imagen del logo de la página, al estilo de Google; asimismo, el \textit{form} que permite la entrada de datos para búsqueda. También, se encuentra el botón para iniciar la ejecución del CGI respectivo que redireccionará la página hacia la búsqueda simple en Google.
   \end{quote}
 
-  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej1.pl}}]{./ej1.pl}
-    
+  \subsection{Archivo \textit{advanced-se.html}}
+
+  \lstinputlisting[style=html, caption={Estructura para la página de búsqueda avanzada}]{advanced-se.html}
 
   \begin{quote}
-    Utilizo la entrada estándar, sin embargo, lee la entrada con un salto de línea. Utilizo la subrutina \textit{chomp} para eliminar ese salto de línea. Luego, simplemente imprimo el saludo con el nombre ingresado.
+    Se observa la misma estructura para el head y la barra de navegación, así como el logo. Lo que cambia aquí son los campos para ingresar datos, cada uno tiene indicaciones para realizar una búsqueda más avanzada. Traté de hacer la estructura acorde a la búsqueda avanzada de Google, aunque me pareción poco llamativa.
   \end{quote}
 
-  \subsection{Ejercicio 2}
+  \subsection{Archivo \textit{image-se.html}}
+
+  \lstinputlisting[style=html, caption={Estructura para la página de búsqueda de imágenes}]{image-se.html}
 
   \begin{quote}
-    Programe la función mayor que reciba un arreglo de números y devuelva el mayor de todos. int mayor(int[] a). Sólo puede usar ciclos y condicionales, no  podrá usar otras funciones del lenguaje Perl.
+    Esta estructura es la misma que la búsqueda simple, solo cambia el CGi que se utiliza, para redireccionar la búsqueda en imágenes con Google.
   \end{quote}
 
-  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej2.pl}}]{./ej2.pl}
+  \subsection{Archivo \textit{styles.css}}
+
+  \lstinputlisting[style=css, caption={Hoja de estilos para todas las páginas}]{styles.css}
 
   \begin{quote}
-    Se crea la subrutina \textit{Mayor}, el cual itera en el arreglo que se ingresa como parámetro, se toma como elemento mayor al primer elemento en el arreglo, si hay otro elemento mayor, pues se cambia. Retorna el número mayor en el arreglo.
+    La hoja de estilos utiiza el color azul característico de Google, así como el gris con el que combina. Se utilizan varios contenedores flex para hacer más fácil el centrar elementos y acomodarlos. Se trata de hacer diseño responsivo aunque no es para nada perfecto. En esta hoja de estilos es donde se realizan los bordes redondeados de los campos de entrada y de los botones.
   \end{quote}
 
-  \subsection{Ejercicio 3}
+  \subsection{Los CGI}
+
+  \lstinputlisting[style=perl, caption={CGI para la búsqueda simple}]{cgi-bin/simple-se.pl}
+  \lstinputlisting[style=perl, caption={CGI para la búsqueda avanzada}]{cgi-bin/advanced-se.pl}
+  \lstinputlisting[style=perl, caption={CGI para la búsqueda de imágenes}]{cgi-bin/image-se.pl}
 
   \begin{quote}
-    Escriba una función que reciba un string y retorne el mismo string invertido. Por ejemplo si la función recibe "roma", deberá devolver "amor". Sólo puede usar ciclos y condicionales, no podrá usar otras funciones del lenguaje Perl.
+    Los tres CGI son lo mismo en si, lo único que se diferencian es el redireccionamiento. cada uno de acuerdo a lo obtenido en los forms de HTML. Redirecciona la página hacia la de búsqueda.
   \end{quote}
 
-  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej3.pl}}]{./ej3.pl}
-
-  \begin{quote}
-    La subrutina \textit{Invert} itera en cada caracter del string ingresado como parámetro, emepzando por el final. Luego, ese caracter se concatena a un nuevo string. Al final obtengo el string invertido.
-  \end{quote}
-
-  \subsection{Ejercicio 4}
-
-  \begin{quote}
-    Estamos al final del semestre y para calcular su promedio el profesor del curso desea eliminar la peor nota y duplicar la mayor nota. De este modo, si sus notas fueran 12, 15, 17 y 14; el profesor eliminaría el 12 y duplicaría el 17, entonces sus notas serían 17, 15, 17 y 14 y sobre ellas calcularía el promedio. Usted deberá programar una función que reciba las notas y devuelva el promedio, según se explicó y para una cantidad de notas no determinada. Para programar su función no podrá usar ningún tipo de condicionales, sólo las funciones max y min de perl.
-  \end{quote}
-
-  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej4.pl}}]{./ej4.pl}
-
-  \begin{quote}
-    Se utiliza el módulo \textit{List::Util} para poder utilizar las subrutinas \textit{max y min}. En la subrutina \textit{Average}, se extrae el elemento mayor y menor en el arreglo de parámetros. Se suman todos los elementos del arreglo y luego, para hallar el promedio de acuerdo a las condiciones dadas, se resta el menor y se suma el mayor, luego se divide entre el número de elementos del arreglo.
-  \end{quote}
-
-  \subsection{Ejercicio 5}
-
-  \begin{quote}
-    Se define una celebridad como una persona que no conoce a nadie,  pero que todos la conocen. Se dispone de una matriz M, donde la posición M[i,j] es True si la persona i, conoce a la persona j; si la persona i, no conoce a la persona j,  entonces M[i,j] será False. Describa un algoritmo que dada una matriz M, logre determinar si esta posee alguna celebridad. Su algoritmo deberá resolver el problema en tiempo lineal, su solución no podrá implicar un tiempo cuadrático ( for o while anidados) o superior.
-
-  \end{quote}
-
-  \lstinputlisting[style=perl, caption={Programa llamado \textit{ej5.pl}}]{./ej5.pl}
-
-  \begin{quote}
-    Nuevamente se utiliza el módulo \textit{List::Util}, para tener acceso a la subrutina \textit{max}. Se crea la subrutina \textit{Celebrity}. En esta, se ingresa como parámetro una referencia a un arreglo bidimensional. Primero se resta 1 al elemento de la diagonal principal, para obtener 0 en dicha posición, luego, si en la fila, el máximo elemento es 0, quiere decir que toda la fila son ceros, ello significa que estamos ante una posible celebridad, que es la única que puede haber en el arreglo bidimensional. Si no se encuentra una fila que contenga solamente ceros, la subrutina retorna 0 (false). Después, se itera en la columna de la celebridad, la cual, al sumarla, debe resultar la cantidad de filas menos 1, con ello nos aseguramos que estamos hablando de una celebridad, por lo tanto retornamos 1 (true), si esto no se cumple, la subrutina termina y retorna 0 (false).
-  \end{quote}
-
+  \begin{quotation}
+    Para revisar más detalles del desarrollo de este laboratorio, puede revisar el siguiente repositorio: \url{https://github.com/gusCreator/pweb-course/tree/main/lab07}. Además, adjunto el enlace para YouTube: \url{https://www.youtube.com/watch?v=-EzRPkyupmI}
+  \end{quotation}
 
 \clearpage
 	
