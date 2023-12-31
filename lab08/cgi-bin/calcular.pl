@@ -94,7 +94,7 @@ print<<BLOCK
   <body>
     <div class="site-wrapper">
       <div class="title">
-        <span>Calculadora</span>
+        <a href="../calculator.html">Calculadora</a>
       </div>
       <div class="resolution-container">
         <div class="resolution">
