@@ -24,20 +24,22 @@ sub solveDiv {
 }
 sub solveExp {
   my $ec = $_[0];
-  #if($ec =~ m/^\((.+)\)$/){
-  # $ec = $1;
-  #}
-  #print $ec."\n";
-  if($ec =~ m/(.*?)\((.+?)\)(.*?)(\(.+\))(.*)/){
-    print "dobPar: $1,$2,$3,$4,$5\n";
-    $ec = $1.solveExp($2).$3.$4.$5;
+  my $sol;
+  if($ec =~ m/(.*?)\((.+)\)(.*?)(\(.+\))(.*)/){
+    my @vars = ($1,$2,$3,$4,$5);
+    print "dobPar: $vars[0],$vars[1],$vars[2],$vars[3],$vars[4]\n";
+    $sol = solveExp($vars[1]);
+    $ec = $vars[0].$sol.$vars[2].$vars[3].$vars[4];
     print "solvedobPar: ".$ec."\n";
     return solveExp($ec);
   }elsif($ec =~ m/^\((.+)\)$/){
-    return solveExp($1);
+    my $ecu = $1;
+    return solveExp($ecu);
   }elsif($ec =~ m/(.*?)\((.+)\)(.*)/){
-    print "nesPar: $1,$2,$3\n";
-    $ec = $1.solveExp($2).$3;
+    my @vars = ($1,$2,$3);
+    print "nesPar: $vars[0],$vars[1],$vars[2]\n";
+    $sol = solveExp($vars[1]);
+    $ec = $vars[0].$sol.$vars[2];
     print "solvenesPar: ".$ec."\n";
     return solveExp($ec);
   }else{
