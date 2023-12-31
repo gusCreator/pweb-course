@@ -20,6 +20,9 @@ sub solveDiv {
   if($ec =~ m/(.*?)\/(.*)/){
     $div = $1 / $2;
   }
+  if($div > 0){
+    $div = "+".$div;
+  }
   return $div;
 }
 sub solveExp {
@@ -60,7 +63,7 @@ sub solveExp {
     my $sum = 0;
     for my $num(@mem){
       $sum = $sum + 0 +  $num;
-      # #print "$sum\n";
+      #print "$sum\n";
     }
     $ec = $sum;
     #print "Final sum: $ec\n";

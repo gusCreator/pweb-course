@@ -44,10 +44,10 @@
 \newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
 \newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
 \newcommand{\itemAcademic}{2023 - B}
-\newcommand{\itemInput}{Del 23 Diciembre 2023}
-\newcommand{\itemOutput}{Al 27 Diciembre 2023}
-\newcommand{\itemPracticeNumber}{07}
-\newcommand{\itemTheme}{Perl}
+\newcommand{\itemInput}{Del 27 Diciembre 2023}
+\newcommand{\itemOutput}{Al 30 Diciembre 2023}
+\newcommand{\itemPracticeNumber}{08}
+\newcommand{\itemTheme}{Expresiones Regulares en Perl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -222,53 +222,41 @@
 		
 	\section{Temas a Tratar:}
 	\begin{itemize}
-		\item CGI en perl
+		\item Expresiones regulares en Perl.
+    \item CGI en Perl.
 	\end{itemize}
 	
 	\section{Actividades}
 
-  \subsection{Archivo \textit{simple-se.html}}
+  \subsection{Archivo \textit{calculator.html}}
 
-  \lstinputlisting[style=html, caption={Esta es la estructura de la página de búsqueda simple}]{simple-se.html}
-
-  \begin{quote}
-    Se puede observar la estructura en el \textit{head} por defecto que debería tener todo documento HTML. Luego, se observa la estructura del la barra de navegación, con tres botones que se dirigen a las respectivas páginas creadas. Posteriormente, se observa la imagen del logo de la página, al estilo de Google; asimismo, el \textit{form} que permite la entrada de datos para búsqueda. También, se encuentra el botón para iniciar la ejecución del CGI respectivo que redireccionará la página hacia la búsqueda simple en Google.
-  \end{quote}
-
-  \subsection{Archivo \textit{advanced-se.html}}
-
-  \lstinputlisting[style=html, caption={Estructura para la página de búsqueda avanzada}]{advanced-se.html}
+  \lstinputlisting[style=html, caption={Esta es la estructura de una calculadora simple}]{calculator.html}
 
   \begin{quote}
-    Se observa la misma estructura para el head y la barra de navegación, así como el logo. Lo que cambia aquí son los campos para ingresar datos, cada uno tiene indicaciones para realizar una búsqueda más avanzada. Traté de hacer la estructura acorde a la búsqueda avanzada de Google, aunque me pareción poco llamativa.
-  \end{quote}
-
-  \subsection{Archivo \textit{image-se.html}}
-
-  \lstinputlisting[style=html, caption={Estructura para la página de búsqueda de imágenes}]{image-se.html}
-
-  \begin{quote}
-    Esta estructura es la misma que la búsqueda simple, solo cambia el CGi que se utiliza, para redireccionar la búsqueda en imágenes con Google.
+    Se observa un contenedor general \textit{site-wrapper}, dentro están los elementos como el él título, un pequeño texto guía y el formulario para ingresar la operación. El formulario se conecta con el archivo \textit{calcular.pl}, el cgi que se encarga de las operaciones. Detro del formulario no hay más que una extrada de texto y un botón de solución.
   \end{quote}
 
   \subsection{Archivo \textit{styles.css}}
 
-  \lstinputlisting[style=css, caption={Hoja de estilos para todas las páginas}]{styles.css}
+  \lstinputlisting[style=html, caption={Hoja de estilos general}]{styles.css}
 
   \begin{quote}
-    La hoja de estilos utiiza el color azul característico de Google, así como el gris con el que combina. Se utilizan varios contenedores flex para hacer más fácil el centrar elementos y acomodarlos. Se trata de hacer diseño responsivo aunque no es para nada perfecto. En esta hoja de estilos es donde se realizan los bordes redondeados de los campos de entrada y de los botones.
+    Se observa unos estilos simples con dos fuentes para toda la página. Se normalizan algunos elementos y se crea una variable \textit{gray}. Asimismo, se desarrolla un diseño simple para el contenedor raíz del sitio, a los contenedores internos se les concede algunos colores agradables. Al final de la hoja de estilos se encuentra el diseño para el cgi, es casi lo mismo que el diseño del html, pero con diferentes nombres de contenedores y una que otra diferencia para los estilos de letra.
   \end{quote}
 
-  \subsection{Los CGI}
+  \subsection{Archivo \textit{calcular.pl}}
 
-  \lstinputlisting[style=perl, caption={CGI para la búsqueda simple}]{cgi-bin/simple-se.pl}
-  \lstinputlisting[style=perl, caption={CGI para la búsqueda avanzada}]{cgi-bin/advanced-se.pl}
-  \lstinputlisting[style=perl, caption={CGI para la búsqueda de imágenes}]{cgi-bin/image-se.pl}
+  \lstinputlisting[style=html, caption={CGI para el cálculo}]{cgi-bin/calcular.pl}
 
   \begin{quote}
-    Los tres CGI son lo mismo en si, lo único que se diferencian es el redireccionamiento. cada uno de acuerdo a lo obtenido en los forms de HTML. Redirecciona la página hacia la de búsqueda.
+    Este CGI usa expresiones regulares para la resolución de operaciones simples. La subrutina principal de la que se vale este script es \textit{solveExp}, esta identifica primeramente expresiones de paréntesis que pueden ser de tres tipos: ()(),(()), (allthecontent); la subrutina identifica estas expresiones y se llama recursivamente para resolverlas. Esto lo hace hasta no identificar paréntesis, luego, resuelve la expresión sin paréntesis y devuelve un solo número como resultado, la pila se queda sin elementos hasta que quede un solo número.
   \end{quote}
+  \subsection{Recursos}
 
+  \begin{itemize}
+    \item Video sobre el funcionamiento de la página \url{}.
+    \item Repositorio de GitHub para commits \url{https://github.com/gusCreator/pweb-course/tree/main/lab08}.
+  \end{itemize}
 
 \clearpage
 	
