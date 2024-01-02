@@ -40,8 +40,12 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  row-gap: 1vh;
+  row-gap: 2vh;
   width: 70%;
+}
+form label {
+  color: white;
+  font-size: 120%;
 }
 .myinput {
   display: flex;
@@ -49,12 +53,29 @@ form {
   column-gap: 1%;
   border-radius: 50%;
   justify-content: space-between;
+  width: 80%;
 }
 .myinput select {
   width: 30%;
   border-radius: 50em 0 0 50em;
+  padding: 1%;
+  background-color: var(--skyblue);
+  color: var(--dark);
+  font-size: 100%;
+  cursor: pointer;
 }
 .myinput input {
+  background-color: lightgray;
   border-radius: 0 50em 50em 0;
   width: 70%;
+  padding: 1%;
+  color: var(--dark);
+}
+input {
+  background-color: var(--blue);
+  border-radius: 50em;
+  padding: 1% 2%;
+  color: white;
+  font-size: 120%;
+  cursor:pointer;
 }
