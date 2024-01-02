@@ -36,14 +36,14 @@ a{
   color: white;
   padding: 1.5%;
 }
-form {
+.content {
   display: flex;
   align-items: center;
   flex-direction: column;
   row-gap: 2vh;
   width: 70%;
 }
-form label {
+.content label {
   color: white;
   font-size: 120%;
 }
