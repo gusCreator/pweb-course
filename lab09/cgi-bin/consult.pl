@@ -50,3 +50,14 @@ print <<HTML;
   </body>
 </html>
 HTML
+sub findInLine {
+  my %dict = ();
+  my $line = $_[0];
+  if($line =~ m/.+\|(.+)\|.+\|.+\|(.+)|.+\|.+\|.+\|.+\|.+\|(.+)\|.+\|.+\|.+\|.+\|.+\|(.+)\|.+/){
+    $dict{"name"} = $1;
+    $dict{"period"} = $2;
+    $dict{"localRegion"} = $3;
+    $dict{"studyProgram"} = $4;
+  }
+  return %dict;
+}
