@@ -20,12 +20,14 @@ print <<HTML;
       <div class="mytitle">
         <b>Resultados de la búsqueda</b>
       </div>
-      <div class="content">
+      <div class="content answer">
 HTML
 
 my $kind = $cgi->param('kind');
 my $keyword = $cgi->param('keyword');
-
+if(!($kind eq "period")){
+  $keyword = uc($keyword);
+}
 my $flag;
 open(IN, "../data.csv" ) or die "<h2>Error al abrir el archivo</h2>";
 while(my $line = <IN>){
