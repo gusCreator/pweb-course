@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  border: 0;
   box-sizing: border-box;
 }
 body {
@@ -37,6 +38,23 @@ a{
 }
 form {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  row-gap: 2%;
+  row-gap: 1vh;
+  width: 70%;
+}
+.myinput {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1%;
+  border-radius: 50%;
+  justify-content: space-between;
+}
+.myinput select {
+  width: 30%;
+  border-radius: 50em 0 0 50em;
+}
+.myinput input {
+  border-radius: 0 50em 50em 0;
+  width: 70%;
 }
