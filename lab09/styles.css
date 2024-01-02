@@ -25,6 +25,18 @@ a{
   justify-content: center;
   height: 100vh;
   flex-direction: column;
-  row-gap: 2vh;
+  row-gap: 4%;
   background-color: var(--darkblue);
+}
+.mytitle {
+  background-color:var(--greenblue);
+  font-size: 200%;
+  border-radius: 12px;
+  color: white;
+  padding: 1.5%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
 }
