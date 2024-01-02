@@ -79,3 +79,13 @@ input {
   font-size: 120%;
   cursor:pointer;
 }
+.back {
+  background-color: var(--blue);
+  border-radius: 50em;
+  padding: 1% 2%;
+  font-size: 120%;
+}
+.back a {
+  text-decoration: none;
+  color: white;
+}
