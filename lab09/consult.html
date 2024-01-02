@@ -8,6 +8,20 @@
   </head>
   <body>
     <div class="site-wrapper">
+      <div class="mytitle">
+        <b>Búsqueda de universidades licenciadas</b>
+      </div>
+      <form action="cgi-bin/consult.pl">
+        <label for="kind">Elija opción e ingrese una frase:</label>
+        <select name="kind">
+          <option value="name">Nombre</option>
+          <option value="period">Periodo de Licenciamiento</option>
+          <option value="localRegion">Departamento Local</option>
+          <option value="studyProgram">Nombre del programa (Carrera)</option>
+        </select> 
+        <input type="text" name="keyowrd">
+        <input type="submit" value="Buscar">
+      </form>
     </div>
   </body>
 </html>
