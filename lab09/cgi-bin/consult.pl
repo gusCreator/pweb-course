@@ -4,7 +4,7 @@ use warnings;
 use CGI;
  
 my $cgi = CGI->new;
-cgi->charset('UTF-8');
+$cgi->charset('UTF-8');
 print $cgi->header('text/html');
 print <<HTML;
 <!DOCTYPE html>
@@ -23,8 +23,8 @@ print <<HTML;
       <div class="content">
 HTML
 
-my $kind = cgi->param('kind');
-my $keyword = cgi->param('keyword');
+my $kind = $cgi->param('kind');
+my $keyword = $cgi->param('keyword');
 
 my $flag;
 open(IN, "../data.csv" ) or die "<h2>Error al abrir el archivo</h2>";
@@ -39,7 +39,7 @@ while(my $line = <IN>){
 }
 close(IN);
 if(!defined($flag)){
-  print "<p>No se encontraron resultados</p>\n"
+  print "<p>No se encontraron resultados</p>\n";
 }
 print <<HTML;
       </div>
