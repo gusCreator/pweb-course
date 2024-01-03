@@ -8,3 +8,4 @@
 *.bbt
 *.synctex.gz
 .vscode
+*.out
