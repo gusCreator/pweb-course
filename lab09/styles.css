@@ -105,10 +105,8 @@ input {
 .back {
   background-color: var(--blue);
   border-radius: 50em;
-  padding: 1% 2%;
   font-size: 120%;
-}
-.back a {
-  text-decoration: none;
-  color: white;
+  text-align: center;
+  border: none;
+  padding: 1% 2%;
 }
