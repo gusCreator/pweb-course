@@ -5,7 +5,7 @@ use CGI;
  
 my $cgi = CGI->new;
 $cgi->charset('UTF-8');
-print $cgi->header('text/html');
+print $cgi->header('text/html; charset=UTF-8');
 print <<HTML;
 <!DOCTYPE html>
 <html lang="es">
@@ -52,6 +52,8 @@ if(<IN>){
     </tr>
 BLOCK
 }
+binmode(STDIN, ":utf8");
+binmode(STDOUT, ":utf8");
 while(my $line = <IN>){
   my %dict = findInLine($line);
   my $value = $dict{$kind};
