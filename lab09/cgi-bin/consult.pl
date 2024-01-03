@@ -30,13 +30,53 @@ if(!($kind eq "period")){
 }
 my $flag;
 open(IN, "../data.csv" ) or die "<h2>Error al abrir el archivo</h2>";
+if(<IN>){
+  print<<BLOCK;
+  <table>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Tipo de Gestión</th>
+      <th>Estado</th>
+      <th>Periodo</th>
+      <th>Departamento Filial</th>
+      <th>Provincia Filial</th>
+      <th>Departamento Local</th>
+      <th>Provincia Local</th>
+      <th>Distrito Local</th>
+      <th>Tipo Autorización</th>
+      <th>Programa</th>
+      <th>Tipo Nivel Académico</th>
+      <th>Nivel Académico</th>
+      <th>Tipo de autorización programa</th>
+    </tr>
+BLOCK
+}
 while(my $line = <IN>){
   my %dict = findInLine($line);
   my $value = $dict{$kind};
   if(defined($value) && $value =~ /.*$keyword.*/){
-    print "<p>$line</p>\n";
-    $flag = 1;
-    next;
+    if($line =~ m/(.+?)\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|.+?\|.+?\|(.+?)\|(.+?)\|.+?\|(.+?)\|(.+?)\|(.+?)\|.+?\|.+?\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|.+?\|.+?\|(.+?)\|.+/){
+      print "<tr>\n";
+      print "<td>$1</td>\n";
+      print "<td>$2</td>\n";
+      print "<td>$3</td>\n";
+      print "<td>$4</td>\n";
+      print "<td>$5</td>\n";
+      print "<td>$6</td>\n";
+      print "<td>$7</td>\n";
+      print "<td>$8</td>\n";
+      print "<td>$9</td>\n";
+      print "<td>$10</td>\n";
+      print "<td>$11</td>\n";
+      print "<td>$12</td>\n";
+      print "<td>$13</td>\n";
+      print "<td>$14</td>\n";
+      print "<td>$15</td>\n";
+      $flag = 1;
+      print "</tr>\n";
+      next;
+    }
   }
 }
 close(IN);
@@ -44,6 +84,7 @@ if(!defined($flag)){
   print "<p>No se encontraron resultados</p>\n";
 }
 print <<HTML;
+        </table>
       </div>
       <div class="back">
         <a href="../consult.html">Volver</a>

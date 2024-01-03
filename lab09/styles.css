@@ -47,6 +47,12 @@ a{
   color: white;
   font-size: 120%;
 }
+.answer {
+  background-color: var(--skyblue);
+  border-radius: 15px;
+  padding: 5%;
+  overflow: auto;
+}
 .myinput {
   display: flex;
   flex-direction: row;
