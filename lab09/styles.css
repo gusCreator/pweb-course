@@ -28,6 +28,7 @@ a{
   flex-direction: column;
   row-gap: 4%;
   background-color: var(--darkblue);
+  padding: 3vh 0;
 }
 .mytitle {
   background-color:var(--greenblue);
@@ -50,8 +51,24 @@ a{
 .answer {
   background-color: var(--skyblue);
   border-radius: 15px;
-  padding: 5%;
-  overflow: auto;
+  padding: 1%;
+  overflow-y:auto ;
+}
+table {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  border: solid 10px none;
+}
+table th{
+  background-color: var(--dark);
+  color: white;
+  padding: 10px;
+}
+table td {
+  background-color: lightgray;
+  color: var(--dark);
+  padding: 10px;
 }
 .myinput {
   display: flex;
