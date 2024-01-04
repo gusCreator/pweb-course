@@ -66,6 +66,18 @@ div {
   padding: 1%;
   overflow-y:auto ;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 3% 4%;
+  background-color: var(--4-color);
+  border-radius: 15px;
+  row-gap: 2vh;
+}
+form label {
+  color: white;
+}
 /*stayhere*/
 table {
   display: flex;
