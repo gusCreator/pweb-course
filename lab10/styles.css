@@ -12,12 +12,15 @@ a{
   width: 100%;
   height: 100%;
 }
+div {
+  display: flex;
+}
 :root{
-  --dark: #160D18;
-  --darkblue: #23145B;
-  --blue: #09456C;
-  --greenblue: #026F6E;
-  --skyblue: #1CA39E;
+  --1-color: #060606;
+  --2-color: #151821;
+  --3-color: #292f3e;
+  --4-color: #42475e;
+  --5-color: #5b5d85;
 
 }
 .site-wrapper {
@@ -27,11 +30,11 @@ a{
   height: 100vh;
   flex-direction: column;
   row-gap: 4%;
-  background-color: var(--darkblue);
+  background-color: var(--1-color);
   padding: 3vh 0;
 }
 .mytitle {
-  background-color:var(--greenblue);
+  background-color:var(--2-color);
   font-size: 200%;
   border-radius: 12px;
   color: white;
@@ -49,7 +52,7 @@ a{
   font-size: 120%;
 }
 .answer {
-  background-color: var(--skyblue);
+  background-color: var(--5-color);
   border-radius: 15px;
   padding: 1%;
   overflow-y:auto ;
@@ -61,13 +64,13 @@ table {
   border: solid 10px none;
 }
 table th{
-  background-color: var(--dark);
+  background-color: var(--1-color);
   color: white;
   padding: 10px;
 }
 table td {
   background-color: lightgray;
-  color: var(--dark);
+  color: var(--1-color);
   padding: 10px;
 }
 .myinput {
@@ -82,8 +85,8 @@ table td {
   width: 30%;
   border-radius: 50em 0 0 50em;
   padding: 1%;
-  background-color: var(--skyblue);
-  color: var(--dark);
+  background-color: var(--5-color);
+  color: var(--1-color);
   font-size: 100%;
   cursor: pointer;
 }
@@ -92,10 +95,10 @@ table td {
   border-radius: 0 50em 50em 0;
   width: 70%;
   padding: 1%;
-  color: var(--dark);
+  color: var(--1-color);
 }
 input {
-  background-color: var(--blue);
+  background-color: var(--3-color);
   border-radius: 50em;
   padding: 1% 2%;
   color: white;
@@ -103,7 +106,7 @@ input {
   cursor:pointer;
 }
 .back {
-  background-color: var(--blue);
+  background-color: var(--3-color);
   border-radius: 50em;
   font-size: 120%;
   text-align: center;
