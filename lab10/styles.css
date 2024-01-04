@@ -24,13 +24,11 @@ div {
 
 }
 .site-wrapper {
-  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   flex-direction: column;
   row-gap: 4%;
-  background-color: var(--1-color);
+  background-color: var(--5-color);
   padding: 3vh 0;
 }
 .mytitle {
@@ -40,8 +38,13 @@ div {
   color: white;
   padding: 1.5%;
 }
+.container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2vh;
+}
 .content {
-  display: flex;
   align-items: center;
   flex-direction: column;
   row-gap: 2vh;
