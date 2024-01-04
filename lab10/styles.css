@@ -78,7 +78,15 @@ form {
 form label {
   color: white;
 }
-/*stayhere*/
+input {
+  background-color: lightgray;
+  border-radius: 50em;
+  padding: 1% 2%;
+  color: var(--3-color);
+  font-size: 110%;
+  cursor:text;
+}
+/*
 table {
   display: flex;
   width: 100%;
@@ -119,14 +127,6 @@ table td {
   padding: 1%;
   color: var(--1-color);
 }
-input {
-  background-color: var(--3-color);
-  border-radius: 50em;
-  padding: 1% 2%;
-  color: white;
-  font-size: 120%;
-  cursor:pointer;
-}
 .back {
   background-color: var(--3-color);
   border-radius: 50em;
@@ -135,3 +135,4 @@ input {
   border: none;
   padding: 1% 2%;
 }
+*/
