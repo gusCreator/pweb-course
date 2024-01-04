@@ -60,12 +60,6 @@ div {
   align-items: center;
   justify-content: center;
 }
-.answer {
-  background-color: var(--5-color);
-  border-radius: 15px;
-  padding: 1%;
-  overflow-y:auto ;
-}
 form {
   display: flex;
   flex-direction: column;

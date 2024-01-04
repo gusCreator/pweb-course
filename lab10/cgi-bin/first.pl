@@ -27,7 +27,7 @@ HTML
 my $user = "alumno";
 my $password = "pweb1";
 my $ip = Net::Adress::IP::Local->public_ipv4;
-my $dsn = "DBI:MariaDB:database=pweb1;host=192.168.0.20";
+my $dsn = "DBI:MariaDB:database=pweb1;host=$ip";
 my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
 my $id = "5";
 my $sth = $dbh->prepare("SELECT * FROM Actor WHERE ActorID=?");
