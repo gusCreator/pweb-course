@@ -237,7 +237,7 @@
   \lstinputlisting[style=html, caption={Estructura de la página de consulta}]{consult.html}
 
   \begin{quote}
-    Una estructura simple con una envoltura para toda la página. Posee un título y un texto guía. Luego está el formulario para la entrada de datos, el cual se relaciona con \textit{consult.pl}. En este formulario se escoge un tipo de información que está referenciado por \textit{kind} y un texto obligatorio para iniciar la búsqueda, el cual está referenciado por \textit{keyword}. A partir de estos parámetros se inicia una búsqueda en el CGI que dará como resultado otra página html. 
+    Una estructura simple con una envoltura para toda la página. Posee un título, 3 opciones que representan los primeros tres ejercicios y un formulario para el cuarto ejercicio, el cual se relaciona con \textit{fourth.pl}. Traté de hacer una estructura de tarjetas para que se vea ordenado y limpio. 
   \end{quote}
 
   \subsection{Archivo \textit{styles.css}}
@@ -245,30 +245,47 @@
   \lstinputlisting[style=html, caption={Hoja de estilos general}]{styles.css}
 
   \begin{quote}
-    Se empieza una una normalización simple a los elementos y una un poco más especial para las referencias. Tambień se define una fuente para la página. Posteriormente se definen algunos colores que se utilizará.
+    Se empieza una una normalización simple a los elementos y una un poco más especial para las referencias y los contenedores (utilizo flexbox). Tambień se define una fuente para la página. Posteriormente se definen algunos colores que se utilizará.
     Empezando con el diseño en general, se configura una envoltura para toda la página, que tenga sus elementos centrados. Luego, se añade un título para hacer la página más llamativa.
-    Nos encontramos con el diseño para el CGI, un contenedor para las respuestas de la búsqueda, en el cual hay una tabla con un diseño llamativo. ALgo interesante a recalcar aquí es queel desbordamiento horizontal de la tabla se maneja en el elemento con el mismo nombre, pero el desbordamiento vertical se maneja en el contenedor de la tabla, creando el resultado que se observa en la página.
-    Luego están los diseños del formulario, los más importantes a mi parecer son el de la entrada de texto y el seleccionador. Los cuales pareciese que fuesen uno solo con sus bordes en os extremos.
-    Por último tenemos el diseño de los botones submit y volver.
+    Aquí, nos encontramos con el diseño de los contenedores,\textit{container} para un contenedor de contenidos, y \textit{content} para el contenido en sí mismo. Se trata de dar un formato de tarjetas con bordes redondeados y al centro, esto para el caso de los primeros tres ejercicios. Para el caso del último, se incluye el diseño del \textit{form}, de manera que la interfaz de ingreso de datos sea llamativa y senciilla para el usuario.
+    Nos encontramos con el diseño para las respuestas del CGI. Dentro de un contenedor \textit{content}, se encuentra otro contenedor llamado \textit{mytable}, el cual fue creado para manejar el desbordamiento de la tabla, tanto horizontal como verticalmente.
+    Por último tenemos el diseño de los botones volver.
   \end{quote}
 
-  \subsection{Archivo \textit{consult.pl}}
+  \subsection{Archivos CGI}
 
-  \lstinputlisting[style=html, caption={CGI para la búsqueda}]{cgi-bin/consult.pl}
+  \lstinputlisting[style=html, caption={CGI del primer ejercicio}]{cgi-bin/first.pl}
 
   \begin{quote}
-    Al comienzo del archivo se puede observar la estructura de la página a mostrar, la cual es practicamente la misma que \textit{consult.html}. Luego, se extraen los datos obtenidos del formulario y se los referencia con variables. En la base de datos, todo estaba en mayúscula, por lo que si los datos están ingresado en minúscula con transformados.
-  Luego se declara una bandera qu indicará si se encontraron o no Resultados. Se abre el archivo con los datos y se crea una tabla en HTML para mostrar los resultados.
-  A continuación se activa la codificación UTF-8 para las tildes presentes en la base de datos y se busca coincidencias de acuerdo a los parámetros establecidos, aquí se usa expresiones regulares. Si los datos coinciden, se imprime una fila de tabla mostrando datos relevantes acerca de la universidad encontrada.
-  Luego simplemente se muestra un botón para volver  y termina la página web.
-  Al final del archivo perl se encuentra la subrutina \textit{findInLine} que permite almacenar los datos necesarios de una universidad en un mapa, aquí también se utilizan expresiones regulares para la extracción de dichos datos.
+  Al comienzo del archivo se puede observar la estructura de la página a mostrar, la cual es prácticamente la misma que \textit{consult.html}, así como la creación del objeto cgi. Luego, se conecta a la base de datos MariaDB con el y se guarda la referencia en \textit{dbh}. Aquí se hace uso de la biblioteca  \textit{DBI} y \textit{Net::Address::IP::Local}, con esta última se obtiene el IP del servidor.
+  Luego se prepara y ejecuta una inserción en la base de datos, en este caso del ActorID 5. A continuación, se obtienen los campos (columnas) para incluirlo en la página a mostrar. 
+  Nuevamente se prepara la referencia de la base de datos para obtener los datos del actor de ID 5, luego se ejecuta la petición, los registros son obtenidos uno a uno en \textit{row}, para mostrarlos en el HTML.
+  Luego simplemente se muestra un botón para volver a la página web de consulta.
+  \end{quote}
+
+  \lstinputlisting[style=html, caption={CGI del segundo ejercicio}]{cgi-bin/second.pl}
+
+  \begin{quote}
+    Este CGI se ejecuta de la misma manera que el anterior, pero esta vez muestra las películas del año 1985, por lo tanto los campos que muestra son de la tabla \textit{Movie}.
+  \end{quote}
+
+  \lstinputlisting[style=html, caption={CGI del tercer ejercicio}]{cgi-bin/third.pl}
+
+  \begin{quote}
+    Se ejecuta como en los casos anteriores, pero esta vez muestra las películas con un Score mayor a 7 y Votos mayores a 5000. Lo único que cambia es la sentencia de la petición de datos.
+  \end{quote}
+
+  \lstinputlisting[style=html, caption={CGI del cuarto ejercicio}]{cgi-bin/fourth.pl}
+
+  \begin{quote}
+    Para este último CGI, la interacción con el servidor es la misma, pero, esta vez se obtienen los datos de un formulario y con el método \textit{get}. En este caso, se ingresa un año y el CGI realiza la petición a la base de datos con el año ingresado.
   \end{quote}
 
   \subsection{Recursos}
 
   \begin{itemize}
-    \item Video sobre el funcionamiento de la página \url{https://youtu.be/GsnAyDq2Puo}.
-    \item Repositorio de GitHub para commits \url{https://github.com/gusCreator/pweb-course/tree/main/lab09}.
+    \item Video sobre el funcionamiento de la página \url{https://youtu.be/6ISN8tj86vQ}.
+    \item Repositorio de GitHub para commits \url{https://github.com/gusCreator/pweb-course/tree/main/lab10}.
   \end{itemize}
 
 \clearpage
