@@ -22,7 +22,7 @@ print <<HTML;
       <div class="mytitle">
         <b>Las más puntuadas</b>
       </div>
-      <div class="container">
+      <div class="content">
 HTML
 my $user = "alumno";
 my $password = "pweb1";
@@ -31,14 +31,28 @@ my $dsn = "DBI:MariaDB:database=pweb1;host=$ip";
 my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
 my $score = "7";
 my $votes = "5000";
-my $sth = $dbh->prepare("SELECT * FROM Movie WHERE Score > ? && Votes > ?");
+
+print "<div class='mytable'>\n<table>\n<tr>\n";
+my $sth = $dbh->prepare("DESC Movie");
+$sth->execute();
+while(my @head = $sth->fetchrow_array){
+  print "<th>$head[0]</th>\n";
+}
+print "</tr>\n";
+$sth = $dbh->prepare("SELECT * FROM Movie WHERE Score > ? && Votes > ?");
 $sth->execute($score, $votes);
 while(my @row = $sth->fetchrow_array){
-  print "<p>@row</p>\n";
+  print "<tr>\n";
+  foreach my $data(@row){
+    print "<td>$data</td>\n";
+  }
+  print "</tr>\n";
 }
 $sth->finish;
 $dbh->disconnect;
 print <<HTML;
+      </table>
+      </div>
       </div>
       <div class="back">
         <a href="../consult.html">Volver</a>
