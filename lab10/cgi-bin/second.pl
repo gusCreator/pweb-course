@@ -15,12 +15,12 @@ print <<HTML;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles.css">
-    <title>Actor 5</title>
+    <title>Películas de 1985</title>
   </head>
   <body>
     <div class="site-wrapper">
       <div class="mytitle">
-        <b>El actor de ID: 5</b>
+        <b>Películas de 1985</b>
       </div>
       <div class="container">
 HTML
