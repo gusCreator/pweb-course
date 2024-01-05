@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use CGI;
 use DBI;
-use Net::Adress::IP::Local;
+use Net::Address::IP::Local;
  
 my $cgi = CGI->new;
 $cgi->charset('UTF-8');
