@@ -22,7 +22,7 @@ print <<HTML;
       <div class="mytitle">
         <b>El actor de ID: 5</b>
       </div>
-      <div class="container">
+      <div class="content">
 HTML
 my $user = "alumno";
 my $password = "pweb1";
@@ -32,14 +32,28 @@ my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
 my $id = "5";
 my $sth = $dbh->prepare("INSERT INTO Actor(ActorID, Name) Values(?,?)");
 $sth->execute($id, "Wally Diego");
+
+print "<table>\n<tr>\n";
+$sth = $dbh->prepare("DESC Actor");
+$sth->execute();
+while(my @head = $sth->fetchrow_array){
+  print "<th>$head[0]</th>\n";
+}
+print "</tr>\n";
 $sth = $dbh->prepare("SELECT * FROM Actor WHERE ActorID=?");
 $sth->execute($id);
+
 while(my @row = $sth->fetchrow_array){
-  print "<p>@row</p>\n";
+  print "<tr>\n";
+  foreach my $data(@row){
+    print "<td>$data</td>\n";
+  }
+  print "</tr>\n";
 }
 $sth->finish;
 $dbh->disconnect;
 print <<HTML;
+        </table>
       </div>
       <div class="back">
         <a href="../consult.html">Volver</a>
