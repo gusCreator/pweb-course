@@ -30,7 +30,9 @@ my $ip = Net::Address::IP::Local->public_ipv4;
 my $dsn = "DBI:MariaDB:database=pweb1;host=$ip";
 my $dbh = DBI->connect($dsn, $user, $password) or die("No se pudo conectar!");
 my $id = "5";
-my $sth = $dbh->prepare("SELECT * FROM Actor WHERE ActorID=?");
+my $sth = $dbh->prepare("INSERT INTO Actor(ActorID, Name) Values(?,?)");
+$sth->execute($id, "Wally Diego");
+$sth = $dbh->prepare("SELECT * FROM Actor WHERE ActorID=?");
 $sth->execute($id);
 while(my @row = $sth->fetchrow_array){
   print "<p>@row</p>\n";
