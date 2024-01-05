@@ -1,0 +1,281 @@
+%\packagelist
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+%\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+%\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemEmail}{lsequeiros@unsa.edu.pe}
+\newcommand{\itemStudent}{Luis Gustavo Sequeiros Condori}
+\newcommand{\itemCourse}{Programación Web I}
+\newcommand{\itemSemester}{II}
+\newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
+\newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
+\newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
+\newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\itemAcademic}{2023 - B}
+\newcommand{\itemInput}{Del 3 Enero 2024}
+\newcommand{\itemOutput}{Al 6 Enero 2024}
+\newcommand{\itemPracticeNumber}{10}
+\newcommand{\itemTheme}{Bases de Datos MySQL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{logo_episunsa.png}}}
+\fancyhead[C]{\fontsize{7}{7}\selectfont	\itemUniversity \\ \itemFaculty \\ \itemDepartment \\ \itemSchool \\ \textbf{\itemCourse}}
+\fancyhead[R]{\raisebox{-0.2\height}{\includegraphics[width=1.2cm]{logo_abet.png}}}
+\fancyfoot[R]{Página \thepage}
+
+% para el codigo fuente
+\usepackage{listings}
+\usepackage{color, colortbl}
+\definecolor{numberOrange}{RGB}{235, 126, 9}
+\definecolor{mygreen}{RGB}{40, 194, 6}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{myblue}{RGB}{57, 118, 189}
+\definecolor{gray}{rgb}{0.156,0.146,0.135}
+\definecolor{mygray}{RGB}{135, 135, 135}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackgroundCode}{RGB}{10, 10, 20}
+\definecolor{codebackgroundBash}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{RGB}{10, 25, 115}
+\definecolor{lines}{RGB}{0, 120, 250}
+
+\arrayrulecolor{lines}
+\lstdefinestyle{custom}{
+  %Las líneas que encierran al código: top, below, left, right. COn mayúsculas son dos líneas
+  frame=tlrb,
+  %Los espacios en los strings s muestran con normalidad, no con carácter especial
+  showstringspaces=false,
+  %no tiene cuidado del alineamiento de columnas, contrario a fixed, con ese valor es más riguroso
+  columns=flexible,
+  %Permite saltos de línea cuando el texto es muy largo
+  breaklines=true,
+  %Luego de un salto de línea automático, se coloca una flecita roja
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+  %Los saltos de línea solo deben ocurrir en espacios en blanco
+  breakatwhitespace=true,
+  %espacios de tabulador
+  tabsize=2,
+  %No mostrar tabulador como caracter, como un espacio y ya
+  showtabs=false,
+  %No mostrar los espacios como caracteres
+  showspaces=false,
+  %No mostrar líneas al final de los listados
+  showlines=false,
+  %La codificación del archivo
+  inputencoding=utf8,
+  %Permite manejar los caracteres especiales junto con inputencoding  el paquete inputenc
+  extendedchars=true,
+  %
+  literate={á}{\'a}1 {é}{\'e}1 {í}{\'i}1 {ó}{\'o}1 {ú}{\'u}1 {¿}{\textquestiondown}1 {ñ}{\~n}1 {Ñ}{\~N}1 
+  {Á}{\'A}1 {É}{\'E}1 {Í}{\'I}1 {Ó}{\'O}1 {Ú}{\'U}1 {¡}{\textexclamdown}1
+}
+
+\lstdefinestyle{perl}{
+  style=custom,
+	language=Perl,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
+\lstdefinestyle{html}{
+  style=custom,
+  language=HTML,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  %emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
+\lstdefinestyle{css}{
+  style=custom,
+  language=CSS,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  %emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
+\lstdefinestyle{mybash}{
+  style=custom,
+	language=bash,
+	keepspaces=true,
+	basicstyle={\small\ttfamily},
+	keywordstyle=\color{myblue},
+	morekeywords={java, javac, git},
+	commentstyle=\color{mygray},
+	stringstyle=\color{mygreen},
+	backgroundcolor= \color{codebackgroundBash}
+}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ Informe de Laboratorio \itemPracticeNumber}
+	\end{center}
+	\centerline{\textbf{\Large Tema: \itemTheme}}
+	\vspace*{0.5cm}	
+
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Estudiante} & \color{white}\textbf{Escuela}  & \color{white}\textbf{Asignatura}   \\
+			\hline 
+      {\itemStudent \par \itemEmail} & \itemSchool & {\itemCourse \par Semestre: \itemSemester}     \\
+			\hline 			
+		\end{tabular}
+	\end{table}		
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Semestre académico} & \color{white}\textbf{Fecha de inicio}  & \color{white}\textbf{Fecha de entrega}   \\
+			\hline 
+			\itemAcademic & \itemInput &  \itemOutput  \\
+			\hline 
+		\end{tabular}
+	\end{table}
+
+	\section{Objetivos}
+	\begin{itemize}		
+    \item Conocer las bases de datos
+    \item Aprender a utilizar las bases de datos a través del SGBD MariaDB
+    \item Valorar la potencialidad de los Sistemas Gestores de BD
+	\end{itemize}
+		
+	\section{Temas a Tratar:}
+	\begin{itemize}
+		\item Expresiones regulares en Perl
+    \item CGI en Perl
+    \item HTML
+    \item CSS
+    \item Consultas a Bases de Datos con MariaDB
+    \item Comandos básicos SQL
+	\end{itemize}
+	
+	\section{Ejercicios Propuestos}
+
+  \subsection{Archivo \textit{consult.html}}
+
+  \lstinputlisting[style=html, caption={Estructura de la página de consulta}]{consult.html}
+
+  \begin{quote}
+    Una estructura simple con una envoltura para toda la página. Posee un título y un texto guía. Luego está el formulario para la entrada de datos, el cual se relaciona con \textit{consult.pl}. En este formulario se escoge un tipo de información que está referenciado por \textit{kind} y un texto obligatorio para iniciar la búsqueda, el cual está referenciado por \textit{keyword}. A partir de estos parámetros se inicia una búsqueda en el CGI que dará como resultado otra página html. 
+  \end{quote}
+
+  \subsection{Archivo \textit{styles.css}}
+
+  \lstinputlisting[style=html, caption={Hoja de estilos general}]{styles.css}
+
+  \begin{quote}
+    Se empieza una una normalización simple a los elementos y una un poco más especial para las referencias. Tambień se define una fuente para la página. Posteriormente se definen algunos colores que se utilizará.
+    Empezando con el diseño en general, se configura una envoltura para toda la página, que tenga sus elementos centrados. Luego, se añade un título para hacer la página más llamativa.
+    Nos encontramos con el diseño para el CGI, un contenedor para las respuestas de la búsqueda, en el cual hay una tabla con un diseño llamativo. ALgo interesante a recalcar aquí es queel desbordamiento horizontal de la tabla se maneja en el elemento con el mismo nombre, pero el desbordamiento vertical se maneja en el contenedor de la tabla, creando el resultado que se observa en la página.
+    Luego están los diseños del formulario, los más importantes a mi parecer son el de la entrada de texto y el seleccionador. Los cuales pareciese que fuesen uno solo con sus bordes en os extremos.
+    Por último tenemos el diseño de los botones submit y volver.
+  \end{quote}
+
+  \subsection{Archivo \textit{consult.pl}}
+
+  \lstinputlisting[style=html, caption={CGI para la búsqueda}]{cgi-bin/consult.pl}
+
+  \begin{quote}
+    Al comienzo del archivo se puede observar la estructura de la página a mostrar, la cual es practicamente la misma que \textit{consult.html}. Luego, se extraen los datos obtenidos del formulario y se los referencia con variables. En la base de datos, todo estaba en mayúscula, por lo que si los datos están ingresado en minúscula con transformados.
+  Luego se declara una bandera qu indicará si se encontraron o no Resultados. Se abre el archivo con los datos y se crea una tabla en HTML para mostrar los resultados.
+  A continuación se activa la codificación UTF-8 para las tildes presentes en la base de datos y se busca coincidencias de acuerdo a los parámetros establecidos, aquí se usa expresiones regulares. Si los datos coinciden, se imprime una fila de tabla mostrando datos relevantes acerca de la universidad encontrada.
+  Luego simplemente se muestra un botón para volver  y termina la página web.
+  Al final del archivo perl se encuentra la subrutina \textit{findInLine} que permite almacenar los datos necesarios de una universidad en un mapa, aquí también se utilizan expresiones regulares para la extracción de dichos datos.
+  \end{quote}
+
+  \subsection{Recursos}
+
+  \begin{itemize}
+    \item Video sobre el funcionamiento de la página \url{https://youtu.be/GsnAyDq2Puo}.
+    \item Repositorio de GitHub para commits \url{https://github.com/gusCreator/pweb-course/tree/main/lab09}.
+  \end{itemize}
+
+\clearpage
+	
+%\clearpage
+%\bibliographystyle{apalike}
+%\bibliographystyle{IEEEtranN}
+%\bibliography{bibliography}
+			
+\end{document}
