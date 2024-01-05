@@ -57,6 +57,14 @@ div {
   font-size: 160%;
   padding: 1.7em 0;
 }
+.myinput {
+   width: fit-content;
+   display: flex;
+   align-self: center;
+   color: white;
+   background-color: var(--1-color);
+   cursor: pointer;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -90,30 +98,6 @@ table td {
   background-color: lightgray;
   color: var(--1-color);
   padding: 10px;
-}
-.myinput {
-  display: flex;
-  flex-direction: row;
-  column-gap: 1%;
-  border-radius: 50%;
-  justify-content: space-between;
-  width: 80%;
-}
-.myinput select {
-  width: 30%;
-  border-radius: 50em 0 0 50em;
-  padding: 1%;
-  background-color: var(--5-color);
-  color: var(--1-color);
-  font-size: 100%;
-  cursor: pointer;
-}
-.myinput input {
-  background-color: lightgray;
-  border-radius: 0 50em 50em 0;
-  width: 70%;
-  padding: 1%;
-  color: var(--1-color);
 }
 .back a {
   background-color: var(--1-color);
