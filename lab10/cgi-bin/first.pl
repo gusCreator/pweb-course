@@ -33,7 +33,7 @@ my $id = "5";
 my $sth = $dbh->prepare("INSERT INTO Actor(ActorID, Name) Values(?,?)");
 $sth->execute($id, "Wally Diego");
 
-print "<table>\n<tr>\n";
+print "<div class='mytable'>\n<table>\n<tr>\n";
 $sth = $dbh->prepare("DESC Actor");
 $sth->execute();
 while(my @head = $sth->fetchrow_array){
@@ -54,6 +54,7 @@ $sth->finish;
 $dbh->disconnect;
 print <<HTML;
         </table>
+        </div>
       </div>
       <div class="back">
         <a href="../consult.html">Volver</a>

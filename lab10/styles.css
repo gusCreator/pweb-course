@@ -85,9 +85,12 @@ input {
   font-size: 110%;
   cursor:text;
 }
+.mytable {
+  width: 100%;
+  overflow: auto;
+}
 table {
   width: 100%;
-  overflow-x: auto;
 }
 table th{
   background-color: var(--1-color);
