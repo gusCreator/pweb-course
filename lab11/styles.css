@@ -55,10 +55,11 @@ a{
   overflow-y:auto ;
 }
 table {
-  display: flex;
+  display: none;
   width: 100%;
   overflow-x: auto;
   border: solid 10px none;
+  flex-direction: row;
 }
 table th{
   background-color: var(--dark);

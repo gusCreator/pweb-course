@@ -1,4 +1,5 @@
 function show(){
+  document.getElementsByTagName("table").item(0).style.display = "block";
   fetch('data_utf8.csv')
     .then(response => {
       if(!response.ok){
@@ -15,6 +16,9 @@ function show(){
     .catch(err => console.error("Error", err));
 }
 function table(data){
+  const table = document.getElementsByTagName("table").item(0);
+  const tbody = table.getElementsByTagName("tbody").item(0);
+  tbody.innerHTML = '';
   const kind = document.getElementById("kind").value;
   const keyword = document.getElementById("keyword").value;
   const lines = data.split("\n");
@@ -23,15 +27,17 @@ function table(data){
     const params = find(line, mydata);
     const value = params.get(kind);
     if(!(typeof value === 'undefined') && value.includes(keyword.toUpperCase())){
+      const row = document.createElement("tr");
+      tbody.appendChild(row);
       const totable = [mydata[1], mydata[2], mydata[3],
         mydata[4], mydata[7], mydata[8], 
         mydata[10], mydata[11], mydata[12], 
         mydata[15], mydata[16], mydata[17], 
         mydata[18]];
       for(const unis of totable){
-        const p = document.createElement("p");
-        p.textContent = unis;
-        document.body.appendChild(p);
+        const el = document.createElement("td");
+        el.innerHTML = unis;
+        row.appendChild(el);
       }
     }
   }
