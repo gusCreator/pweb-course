@@ -1,4 +1,5 @@
 function show(){
+  if(document.getElementById("keyword").value == ''){alert("Ingrese palabras clave en el campo"); return;}
   document.getElementsByTagName("table").item(0).style.display = "block";
   fetch('data_utf8.csv')
     .then(response => {
