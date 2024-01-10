@@ -15,13 +15,13 @@
       <form class="content" id="myform">
         <label for="kind">Elija opción e ingrese una frase:</label>
         <div class="myinput">
-          <select name="kind" required>
+          <select id="kind" name="kind" required>
             <option value="name">Nombre</option>
             <option value="period">Periodo de Licenciamiento</option>
             <option value="localRegion">Departamento Local</option>
             <option value="studyProgram">Nombre del programa (Carrera)</option>
           </select> 
-          <input type="text" name="keyword" required>
+          <input type="text" id="keyword" name="keyword" required>
         </div>
         <button type="button" onclick="show()">Buscar</button>
       </form>
