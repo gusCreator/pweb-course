@@ -1,4 +1,4 @@
-fetch('../data.csv')
+fetch('data.csv')
 .then(response => {
   if(!response.ok){
     throw new Error('No se concretó la solicitud');
@@ -6,7 +6,9 @@ fetch('../data.csv')
   return response.text();
 })
 .then(data => {
-  console.log("Datos obtenidos", csv);
+  console.log("Datos obtenidos", data);
 })
 .catch(err => console.error("Error", err));
-
+function show(){
+  console.log("show...");
+}
