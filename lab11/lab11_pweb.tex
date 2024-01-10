@@ -169,6 +169,23 @@
   %emphstyle={\color[RGB]{244,151,32}},
 	backgroundcolor= \color{codebackgroundCode}
 }
+\lstdefinestyle{js}{
+  style=custom,
+  language=java,
+	basicstyle={\footnotesize\ttfamily\color[RGB]{255,255,255}},
+	numberstyle=\color{mygray},
+	numbers=left, 
+  framexleftmargin=8mm,
+  framexrightmargin=8mm,
+  keywordstyle={\color{myblue}\itshape},
+	%morekeywords={String, System, List, ArrayList, LinkedList, Scanner, Map, HashMap, TreeMap, Scanner},
+  commentstyle={\color{mygray}\itshape},
+  identifierstyle=\color[RGB]{16,151,228},
+	stringstyle=\color{mygreen},
+  %emph={int, char, boolean, String, double, float, byte, long, short, Integer, Character, Soldado, Boolean, Double, Float, Byte, Long, Short, List, Scanner, Map},
+  %emphstyle={\color[RGB]{244,151,32}},
+	backgroundcolor= \color{codebackgroundCode}
+}
 \lstdefinestyle{mybash}{
   style=custom,
 	language=bash,
@@ -283,7 +300,7 @@
    \item Operadores: + -  /
    \item Expresiones: Una combinación de variables, valores y operadores, con los que se calcula un valor. El cálculo es llamado Evaluación
    \item Comentarios: Luego de // o entre /* */
-   \item Identificadores: Empiezan con letras,\textdollar o _, no con números. Distinguen entre mayúsculas y minúsculas.
+   \item Identificadores: Empiezan con letras,\textdollar o \_, no con números. Distinguen entre mayúsculas y minúsculas.
    \item Utiliza Unicode
  \end{itemize}
 
@@ -301,7 +318,7 @@
    \item Se puede declarar en una línea separando por coma
    \item Si se vuelve a declarar una variable declarada con var, esta no perderá su valor. No se puede redeclarar una varible declarada con let y const
    \item Si en una operación aritmética se encuentra un String, los números siguientes se comportarán como String.
-   \item Es una convención utilizar _ al inicio del nombre de una variable "escondida"
+   \item Es una convención utilizar \_ al inicio del nombre de una variable "escondida"
  \end{itemize}
 
  \subsection{Let y const}
@@ -364,10 +381,10 @@
 
  \begin{itemize}
    \item Los objetos también son variables, pero contienen más valores
-   \item \lstinline{const car = \{type:"Fiat", model:"500", color:"white"\};}
+   \item \lstinline|const car = {type:"Fiat", model:"500", color:"white"};|
    \item Los espacios y saltos de línea no son importantes aquí
    \item Para acceder a una propiedad del objeto \lstinline{car.type} o \lstinline{car["type"]}
-   \item Los objetos pueden tener métodos, los cuales se tratan como propiedades en estos \lstinline{fullName : function()\{ return this.firstName + " " + this.lastName;\}}
+   \item Los objetos pueden tener métodos, los cuales se tratan como propiedades en estos \lstinline|fullName : function(){ return this.firstName + " " + this.lastName;}|
    \item this tiene diferentes significados, en la tabla de abajo se encuentra su explicación
    \item En una definición de función, this se refiere al propietario de la función (objeto que tiene la función)
    \item \lstinline{objectName.methodName()}
@@ -415,7 +432,7 @@
    \item Infinity es el valor que JS devolverá s calcula un número fuera del mayor posible
    \item Hexadecimales, Js interpretanúmeros hexadecimales si están precedidos por 0xFF (nunca escribir un número con 0 a la izquierda ya que algunas versiones lo interpretan como octales)
    \item BigInt es el segundo tipo numérico de dato en JS
-   \item Number.MAX_SAFE_INTEGER y Number.MIN_SAFE_INTEGER, Number.EPSILON, Number.MAX_VALUE, Number.MIN_VALUE, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, Number.NaN 
+   \item Number.MAXi\_SAFE\_INTEGER y Number.MIN\_SAFE\_INTEGER, Number.EPSILON, Number.MAX\_VALUE, Number.MIN\_VALUE, Number.POSITIVE\_INFINITY, Number.NEGATIVE\_INFINITY, Number.NaN 
    \item isInteger() para saber si es un número enteros
    \item toString(), retorna un número como String
    \item toExponential(), retorna un número escrito en su notación exponencial
@@ -517,8 +534,8 @@
  \begin{itemize}
    \item Modificadores: i, case sensitive; g, encontrar todas las coincidencias; m, con diferentes líneas; d, coincidencia de inicio y final
    \item [abc], [0-9], (x|y) como en perl
-   \item \\d para dígito, \\s espacio en blanco , \\b match al inicio o final de la palabra
-   \item \\uxxxx encontrar un caracter unicode especial
+   \item {\textbackslash}d para dígito, {\textbackslash}s espacio en blanco , {\textbackslash}b match al inicio o final de la palabra
+   \item {\textbackslash}uxxxx encontrar un caracter unicode especial
    \item *, +; ? como el Perl
    \item el objeto expresión regular \lstinline{const pattern = /e/; pattern.test("The best things in life are free!");} retorma true si lo contiene, en esste caso si es true
  \end{itemize}
@@ -539,10 +556,13 @@
 
  \subsection{Fetch}
  
+  \lstinputlisting[style=js, caption={Código JavaScript que utiliza la api fetch para extaer una archivo}]{js/fetch.js}
+
+  \subsection{Recursos}
   \begin{itemize}
-    \item Video sobre el funcionamiento de la página \url{https://youtu.be/6ISN8tj86vQ}.
     \item Repositorio de GitHub para commits \url{https://github.com/gusCreator/pweb-course/tree/main/lab10}.
   \end{itemize}
+    
 
 \clearpage
 	
